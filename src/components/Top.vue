@@ -25,9 +25,9 @@
 export default {
   components: {
   },
-  data () {
+  data() {
     return {
-    	items: null,
+      items: null,
       message: '',
       keyword: ''
     }
@@ -38,34 +38,34 @@ export default {
     this.debouncedGetAnswer = _.debounce(this.getAnswer, 1000);
   },
   watch: {
-    keyword: function(newKeyword, oleKeyword) {
-      console.log(newKeyword);
+    keyword: function(newKeyword, oldKeyword) {
+      console.log(newKeyword, oldKeyword);
       this.message = 'Waiting for your to stop typing...';
       this.debouncedGetAnswer();
     }
   },
   methods: {
-    	getAnswer: function() {
-      	if (this.keyword === '') {
-        	this.item = null;
-        	this.message = '';
-          return;
-        }
-        this.message = 'Loading...';
-        var vm = this;
-        var params = {page: 1, per_page: 20, query: this.keyword};
-        this.$store.dispatch('getQiitaList', params)
-        .then(function(response) {
-        	//console.log(response);
-          vm.items = response.data;
-        })
-        .catch(function(error) {
-        	vm.message = 'Error!' + error;
-        })
-        .finally(function() {
-        	vm.message = '';
-        });
+    getAnswer: function() {
+      if (this.keyword === '') {
+        this.item = null;
+        this.message = '';
+        return;
       }
+      this.message = 'Loading...';
+      var vm = this;
+      var params = {page: 1, per_page: 20, query: this.keyword};
+      this.$store.dispatch('getQiitaList', params)
+      .then(function(response) {
+        //console.log(response);
+        vm.items = response.data;
+      })
+      .catch(function(error) {
+        vm.message = 'Error!' + error;
+      })
+      .finally(function() {
+        vm.message = '';
+      });
+    }
   }
 }
 </script>

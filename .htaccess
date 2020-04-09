@@ -1,0 +1,10 @@
+
+RewriteEngine On
+RewriteBase /vuejs-qiita-api/
+RewriteCond %{REQUEST_URI} !/vuejs-qiita-api/dist
+RewriteCond %{REQUEST_URI} !/vuejs-qiita-api/git-hook.php
+RewriteRule ^(.*)$ dist/$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /vuejs-qiita-api [L]
+

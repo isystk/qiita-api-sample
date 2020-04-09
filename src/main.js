@@ -1,11 +1,8 @@
 import './assets/sass/normalize.scss';
 import './assets/sass/common.scss';
 
-import axios from 'axios';
-window.axios = axios;
-import lodash from 'lodash';
-window.lodash = lodash;
-window._ = lodash;
+import _ from 'lodash';
+window._ = _;
 
 import Vue from "vue"
 import App from "./pages/index"

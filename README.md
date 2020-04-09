@@ -4,7 +4,7 @@ vuejs-qiita-api
 ## Description
 
 ## Demo
-https://design.isystk.com/vuejs-qiita-api/
+https://demo.isystk.com/vuejs-qiita-api/
 
 ## VS. 
 
